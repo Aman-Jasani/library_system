@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}">
+<meta charset="ISO-8859-1">
+<title>Sheridan Library</title>
+</head>
+<body>
+
+	<div>
+		<img width="20%" src="../image/s2.png" th:src="@{../image/s2.png}">
+	</div>
+
+	<div class="navbar">
+		<a href="/"> Home </a>
+		 <a href="/addbookbrampton"> Davis Campus</a> <a
+			href="/addbookoakville"> Trafalgar Campus</a> <a
+			href="/addbookmissussaga"> HMC Campus</a>
+			<a href="/viewbrampton"> View Davis Library</a>
+			<a href="/viewoakville"> View Trafalgar Library</a>
+			<a href="/viewmissussaga" class="active"> View HMC Library</a>
+	</div>
+
+	<div>
+		<h2>Welcome to HMC Campus Library</h2>
+	</div>
+	
+	<div id="search">
+		<form action="/searchmissussagabook" method="get">
+			<select name="field">
+				<option value="MissID">Searh By ID</option>
+				<option value="Title">Searh By Title</option>
+				<option value="Author">Searh By Author</option>
+				<option value="Course_code">Searh By Course code</option>
+				<option value="mquantity">Searh By Quantity</option>
+			</select> <input type="text" name="value"> <input type="submit"
+				value="Search Book">
+		</form>
+		</div>
+
+	<div>
+		<table border="1"
+			style="text-align: center; width: 90%; margin-left: 60px">
+
+			<tr>
+				<th>Book ID</th>
+				<th>Course Code</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+
+			<tr th:each="info2 : ${m}">
+				<td th:text="${info2.MissID}"></td>
+				<td th:text="${info2.course_code}"></td>
+				<td th:text="${info2.title}"></td>
+				<td th:text="${info2.author}"></td>
+				<td th:text="${info2.price}"></td>
+				<td th:text="${info2.mquantity}"></td>
+				<td><span th:if="${info2.mquantity== 0}" th:text="purchase">
+				</span> <a href="" th:if="${info2.mquantity!= 0}"
+					th:href="@{/purchasemiss/{MissID}/{mquantity}(MissID=${info2.MissID},mquantity=${info2.mquantity})}">
+						purchase</a></td>
+				<td><a href=""
+					th:href="@{/editmiss/{MissID}(MissID=${info2.MissID})}"> Edit</a></td>
+				<td><a href=""
+					th:href="@{/deletemiss/{MissID}(MissID=${info2.MissID})}">
+						Delete </td>
+			</tr>
+
+		</table>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}">
+<meta charset="ISO-8859-1">
+<title>Sheridan Library</title>
+</head>
+<body>
+
+	<div>
+		<img width="20%" src="../image/s2.png" th:src="@{../image/s2.png}">
+	</div>
+
+	<div class="navbar">
+		<a href="/" > Home </a>
+		 <a href="/addbookbrampton" class="active"> Davis Campus</a> <a
+			href="/addbookoakville"> Trafalgar Campus</a> <a
+			href="/addbookmissussaga"> HMC Campus</a>
+			<a href="/viewbrampton"> View Davis Library</a>
+			<a href="/viewoakville"> View Trafalgar Library</a>
+			<a href="/viewmissussaga"> View HMC Library</a>
+	</div>
+
+	<div>
+		<h2>| Welcome to Davis Campus library |</h2>
+	</div>
+
+	<div id="f1">
+		<form action="addbrampton" method="get">
+			<label> Course Code : </label><br> <input type="text"
+				name="course_code"> <br> <br> <label>
+				Title : </label><br> <input type="text" name="title"> <br>
+			<br> <label> Author : </label><br> <input type="text"
+				name="author"> <br> <br> <label> price : </label><br>
+			<input type="text" name="price"> <br> <br> <label>
+				Quantity :</label> <br> <input type="text" name="bquantity"> <br>
+			<br> <input type="submit" value="Add Book">
+		</form>
+
+	</div>
+
+
+
+</body>
+</html>

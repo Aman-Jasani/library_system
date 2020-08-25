@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}">
+<meta charset="ISO-8859-1">
+<title>Sheridan Library</title>
+</head>
+<body>
+
+	<div>
+		<img width="20%" src="../image/s2.png" th:src="@{../image/s2.png}">
+	</div>
+
+	<div class="navbar">
+		<a href="/" class="active"> Home </a>
+		 <a href="/addbookbrampton"> Davis Campus</a> <a
+			href="/addbookoakville"> Trafalgar Campus</a> <a
+			href="/addbookmissussaga"> HMC Campus</a>
+			<a href="/viewbrampton"> View Davis Library</a>
+			<a href="/viewoakville"> View Trafalgar Library</a>
+			<a href="/viewmissussaga"> View HMC Library</a>
+	</div>
+	
+	<div id="cd">
+	<form action="createdummy" method="get">
+		<input type="submit" value="Generate Dummy Record">
+	</form>
+	</div>
+
+	<div>
+		<h2>Welcome to all library of sheridan</h2>
+	</div>
+
+</body>
+</html>

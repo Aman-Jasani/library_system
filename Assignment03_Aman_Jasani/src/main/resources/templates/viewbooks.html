@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}">
+<meta charset="ISO-8859-1">
+<title>Sheridan Library</title>
+</head>
+<body>
+
+	<div>
+		<img width="20%" src="../image/s2.png" th:src="@{../image/s2.png}">
+	</div>
+
+	<div class="navbar">
+		<a href="/view" class="active"> View Book </a>
+		 <a href="/addbookbrampton"> Davis Campus</a> <a
+			href="/addbookoakville"> Oakville Campus</a> <a
+			href="/addbookmissussaga"> Trafalgar Campus</a>
+	</div>
+
+	<div>
+		<h2>Welcome to Davis Campus Library</h2>
+	</div>
+
+	<div>
+		<table border="1"
+			style="text-align: center; width: 90%; margin-left: 60px">
+
+			<tr>
+				<th>Book ID</th>
+				<th>Course Code</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+
+			<tr th:each="info : ${b}">
+				<td th:text="${info.BrampID}"></td>
+				<td th:text="${info.course_code}"></td>
+				<td th:text="${info.title}"></td>
+				<td th:text="${info.author}"></td>
+				<td th:text="${info.price}"></td>
+				<td th:text="${info.bquantity}"></td>
+		<td><span th:if="${info.bquantity==0}" th:text="purchase">
+				</span><a href="" th:if="${info.bquantity!=0}"
+					th:href="@{/purchasebramp/{BrampID}/{bquantity}(BrampID=${info.BrampID},bquantity=${info.bquantity})}">
+						Purchase</a></td>			
+		<td><a href="" th:href="@{/editbramp/{BrampID}(BrampID=${info.BrampID})}">
+						Edit</a></td>
+				<td><a href=""
+					th:href="@{/deletebramp/{BrampID}(BrampID=${info.BrampID})}">
+						Delete </td>
+			</tr>
+
+		</table>
+	</div>
+
+	<div>
+		<h2>Welcome to Oakville Campus Library</h2>
+	</div>
+
+	<div>
+		<table border="1"
+			style="text-align: center; width: 90%; margin-left: 60px">
+
+			<tr>
+				<th>Book ID</th>
+				<th>Course Code</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+
+			<tr th:each="info1 : ${o}">
+				<td th:text="${info1.OakID}"></td>
+				<td th:text="${info1.course_code}"></td>
+				<td th:text="${info1.title}"></td>
+				<td th:text="${info1.author}"></td>
+				<td th:text="${info1.price}"></td>
+				<td th:text="${info1.oquantity}"></td>
+				<td><span th:if="${info1.oquantity==0}" th:text="purchase">
+				</span><a href="" th:if="${info1.oquantity!=0}"
+					th:href="@{/purchaseoak/{OakID}/{oquantity}(OakID=${info1.OakID},oquantity=${info1.oquantity})}">
+						Purchase</a></td>
+				<td><a href=""
+					th:href="@{/editoak/{OakID}(OakID=${info1.OakID})}"> Edit</a></td>
+				<td><a href=""
+					th:href="@{/deleteoak/{OakID}(OakID=${info1.OakID})}"> Delete </td>
+			</tr>
+
+		</table>
+
+
+		<div>
+			<h2>Welcome to Trafalgar Campus Library</h2>
+		</div>
+
+		<div>
+			<table border="1"
+				style="text-align: center; width: 90%; margin-left: 60px">
+
+				<tr>
+					<th>Book ID</th>
+					<th>Course Code</th>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Price</th>
+					<th>Quantity</th>
+				</tr>
+
+				<tr th:each="info2 : ${m}">
+					<td th:text="${info2.MissID}"></td>
+					<td th:text="${info2.course_code}"></td>
+					<td th:text="${info2.title}"></td>
+					<td th:text="${info2.author}"></td>
+					<td th:text="${info2.price}"></td>
+					<td th:text="${info2.mquantity}"></td>
+					<td><span th:if="${info2.mquantity== 0}" th:text="purchase">
+					    </span> 
+					    <a href="" th:if="${info2.mquantity!= 0}"
+						th:href="@{/purchasemiss/{MissID}/{mquantity}(MissID=${info2.MissID},mquantity=${info2.mquantity})}">
+							purchase</a></td>
+					<td><a href=""
+						th:href="@{/editmiss/{MissID}(MissID=${info2.MissID})}"> Edit</a>
+					</td>
+					<td><a href=""
+						th:href="@{/deletemiss/{MissID}(MissID=${info2.MissID})}">
+							Delete </td>
+				</tr>
+
+			</table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: lightblue;
+}
+
+#style{
+	text-align: center;
+	padding: 10px;
+}
+h1{
+	text-align: center;
+}
+
+#search{
+	text-align: center;
+	padding: 10px;
+}
+
+#cd{
+	text-align: center;
+	padding : 20px;
+}
+
+h2{
+	text-align: center;
+}
+
+#f1{
+	border: 5px solid red;
+    border-radius: 7px;
+    width: 315px;
+    text-align: center;
+    padding-block-end: 8px;
+    padding-top: 8px;
+    margin-left: 453px;
+}
+
+
+.navbar {
+ width: 100%;
+    background-color: rgba(63, 81, 181, 0.54);
+    overflow: auto;
+}
+
+.navbar a {
+  float: left;
+    padding: 9px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.navbar a:hover {
+  background-color: #3F51B5;
+}
+
+.active {
+  background-color: #2000d4;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+
+

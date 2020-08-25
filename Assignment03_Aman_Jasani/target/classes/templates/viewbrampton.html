@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="../css/style.css"
+	th:href="@{/css/style.css}">
+<meta charset="ISO-8859-1">
+<title>Sheridan Library</title>
+</head>
+<body>
+
+	<div>
+		<img width="20%" src="../image/s2.png" th:src="@{../image/s2.png}">
+	</div>
+
+	<div class="navbar">
+		<a href="/" > Home </a>
+		 <a href="/addbookbrampton"> Davis Campus</a> <a
+			href="/addbookoakville"> Trafalgar Campus</a> <a
+			href="/addbookmissussaga"> HMC Campus</a>
+			<a href="/viewbrampton" class="active"> View Davis Library</a>
+			<a href="/viewoakville"> View Trafalgar Library</a>
+			<a href="/viewmissussaga"> View HMC Library</a>
+	</div>
+
+	<div>
+		<h2>Welcome to Davis Campus Library</h2>
+	</div>
+
+	<div id= "search">
+		<form action="/searchbramptonbook" method="get">
+			<select name="field">
+				<option value="BrampID">Searh By ID</option>
+				<option value="Title">Searh By Title</option>
+				<option value="Author">Searh By Author</option>
+				<option value="Course_code">Searh By Course code</option>
+				<option value="bquantity">Searh By Quantity</option>
+			</select> <input type="text" name="value"> <input type="submit"
+				value="Search Book">
+		</form>
+	</div>
+
+
+
+
+	<div>
+		<table border="1"
+			style="text-align: center; width: 90%; margin-left: 60px">
+
+			<tr>
+				<th>Book ID</th>
+				<th>Course Code</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Price</th>
+				<th>Quantity</th>
+			</tr>
+
+			<tr th:each="info : ${b}">
+				<td th:text="${info.BrampID}"></td>
+				<td th:text="${info.course_code}"></td>
+				<td th:text="${info.title}"></td>
+				<td th:text="${info.author}"></td>
+				<td th:text="${info.price}"></td>
+				<td th:text="${info.bquantity}"></td>
+				<td><span th:if="${info.bquantity==0}" th:text="purchase">
+				</span><a href="" th:if="${info.bquantity!=0}"
+					th:href="@{/purchasebramp/{BrampID}/{bquantity}(BrampID=${info.BrampID},bquantity=${info.bquantity})}">
+						Purchase</a></td>
+				<td><a href=""
+					th:href="@{/editbramp/{BrampID}(BrampID=${info.BrampID})}">
+						Edit</a></td>
+				<td><a href=""
+					th:href="@{/deletebramp/{BrampID}(BrampID=${info.BrampID})}">
+						Delete </td>
+			</tr>
+
+		</table>
+	</div>
+
+</body>
+</html>
